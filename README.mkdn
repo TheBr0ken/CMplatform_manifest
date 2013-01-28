@@ -31,11 +31,37 @@ familiar with [Git and Repo](http://source.android.com/download/using-repo).
 
 To initialize your local repository using the CyanogenMod trees, use a command like this:
 
-    repo init -u git://github.com/Chad0989/android.git -b cm-10.1
+    repo init -u git://github.com/TheBr0ken/android.git -b cm-10.1
 
 Then to sync up:
 
     repo sync
+
+To build with the latest Linaro toolchain:
+
+Go into your "build" directory:
+
+    cd build
+
+edit envsetup.sh and change:
+
+    arm) toolchaindir=arm/arm-linux-androideabi-4.6/bin
+
+to:
+
+    arm) toolchaindir=linaro/bin
+
+
+Now go back to your root working folder and run this just for good measures:
+
+    .vendor/cm/get-prebuilts
+
+Time to build!
+
+    .build/envsetup.sh
+
+    brunch vigor
+
 
 Please see the [CyanogenMod Wiki](http://wiki.cyanogenmod.org/) for building instructions.
 
